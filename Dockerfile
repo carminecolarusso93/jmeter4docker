@@ -36,6 +36,6 @@ EXPOSE 80
 #COPY test.jmx test.jmx
 #COPY startup.sh startup.sh
 
-RUN chmod 777 -R /jmeter
+#RUN chmod 777 -R /jmeter
 
-ENTRYPOINT ["./startup.sh"]
+#ENTRYPOINT ["./startup.sh"]
