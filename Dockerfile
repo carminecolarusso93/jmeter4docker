@@ -13,14 +13,12 @@ RUN apt-get clean && \
 
 #Install JMeter
 
-#RUN mkdir /jmeter \
-#    && cd /jmeter
+RUN mkdir /jmeter \
+    && cd /jmeter
 
 WORKDIR /jmeter
 
-RUN   mkdir /jmeter \
-      && cd /jmeter/ \
-      && wget http://apache.panu.it//jmeter/binaries/apache-jmeter-5.1.1.tgz \
+RUN   wget http://apache.panu.it//jmeter/binaries/apache-jmeter-5.1.1.tgz \
       && tar -xzf apache-jmeter-5.1.1.tgz \
       && rm apache-jmeter-5.1.1.tgz
 
