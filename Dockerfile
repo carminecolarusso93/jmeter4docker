@@ -22,8 +22,6 @@ RUN   wget http://it.apache.contactlab.it//jmeter/binaries/apache-jmeter-5.2.1.t
       && tar -xzf apache-jmeter-5.2.1.tgz \
       && rm apache-jmeter-5.2.1.tgz
 
-#COPY apache-jmeter-5.1.1/ apache-jmeter-5.1.1
-
 ENV JMETER_HOME /jmeter/apache-jmeter-5.2.1
 
 ENV PATH $JMETER_HOME/bin:$PATH
@@ -32,8 +30,8 @@ EXPOSE 8080
 EXPOSE 80
 
 #COPY test.jmx test.jmx
-#COPY startup.sh startup.sh
+COPY startup.sh startup.sh
 
 RUN chmod 777 -R /jmeter
 
-#ENTRYPOINT ["./startup.sh"]
+ENTRYPOINT ["./startup.sh"]
