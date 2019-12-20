@@ -36,4 +36,4 @@ EXPOSE 80
 
 RUN chmod 777 -R /jmeter
 
-#ENTRYPOINT ["./startup.sh"]
+ENTRYPOINT ["./startup.sh"]
