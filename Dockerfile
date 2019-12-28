@@ -31,6 +31,9 @@ EXPOSE 80
 
 #COPY test.jmx test.jmx
 COPY startup.sh startup.sh
+COPY microservice-admin_ConfC.jmx microservice-admin_ConfC.jmx
+COPY microservice-user_ConfC.jmx microservice-user_ConfC.jmx
+COPY Monolith_ConfC.jmx Monolith_ConfC.jmx
 
 RUN chmod 777 -R /jmeter
 
