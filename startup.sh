@@ -1,6 +1,11 @@
 #!/bin/bash
 
-#jmeter -n -t $1 -Jpath=$2 -l results.jtl
+jmeter -n -t microservice-admin_ConfC.jmx -l results_microservice-admin_ConfC.jtl
+
+jmeter -n -t microservice-user_ConfC.jmx -l microservice-user_ConfC.jtl
+
+jmeter -n -t Monolith_ConfC.jmx -l Monolith_ConfC.jtl
 
 # Sleep for a few minutes to give pipeline time to retrieve dashboard files
-sleep 3
+sleep 900
+
