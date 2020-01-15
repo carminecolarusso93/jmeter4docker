@@ -1,0 +1,61 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: '2020-01-14T13:48:17Z'
+  generation: 3
+  labels:
+    app: jmeter-testsuite
+  name: jmeter-testsuite
+  namespace: progetto2
+  resourceVersion: '46620769'
+  selfLink: >-
+    /apis/apps.openshift.io/v1/namespaces/progetto2/deploymentconfigs/jmeter-testsuite
+  uid: 84930c47-36d4-11ea-9808-fa163eceb844
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentconfig: jmeter-testsuite
+  strategy:
+    activeDeadlineSeconds: 21600
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: jmeter-testsuite
+        deploymentconfig: jmeter-testsuite
+    spec:
+      containers:
+        - image: >-
+            docker-registry.default.svc:5000/progetto2/jmeter-testsuite@sha256:235df96ef1aef398a846aca063d5081f985d2dfac64da2cc2c8c080ba933adb9
+          imagePullPolicy: Always
+          name: jmeter-testsuite
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - jmeter-testsuite
+        from:
+          kind: ImageStreamTag
+          name: 'jmeter-testsuite:latest'
+          namespace: progetto2
+        lastTriggeredImage: >-
+          docker-registry.default.svc:5000/progetto2/jmeter-testsuite@sha256:235df96ef1aef398a846aca063d5081f985d2dfac64da2cc2c8c080ba933adb9
+      type: ImageChange
+    - type: ConfigChange 
