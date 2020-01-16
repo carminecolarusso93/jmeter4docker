@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#jmeter -n -t microservice-admin_ConfC.jmx -l results_microservice-admin_ConfC.jtl
+jmeter -n -t microservice-admin_ConfC.jmx -l results_microservice-admin_ConfC.jtl
 
-#jmeter -n -t microservice-user_ConfC.jmx -l microservice-user_ConfC.jtl
+jmeter -n -t microservice-user_ConfC.jmx -l microservice-user_ConfC.jtl
 
 jmeter -n -t Monolith_ConfC.jmx -l Monolith_ConfC.jtl
 
